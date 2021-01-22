@@ -15,9 +15,10 @@ class DataAccess
     // Attributes (none atm)
     // private $variable
 
-    // ### REGISTRATION MODULE ###
+    // ###################
+    // REGISTRATION MODULE
     // Add new user to MySQL database
-    // ###########################
+    // ###################
     public function registerUser($p_fname, $p_lname, $p_uname, $p_email, $p_pass, $p_dob)
     {
 
@@ -71,6 +72,7 @@ class DataAccess
         // Execute & Store results
         $sql_statement->execute();
         $sql_statement->store_result(); // VERY IMPORT TO STORE THE RESULTS, spend too long wondering why it want working
+        //$sql_statement->get_result();
 
         // Store results in an array
         $numOfExistingUsers = $sql_statement->num_rows;
@@ -83,9 +85,9 @@ class DataAccess
         return $numOfExistingUsers;
     }
 
-    // ### LOGIN MODULE ###
-    //
-    // ###########################
+    // ###################
+    // LOGIN MODULE
+    // ###################
     public function loginUser($p_username, $p_password)
     {
 
@@ -93,21 +95,33 @@ class DataAccess
         $dataConnection = new DatabaseConnection();
         $dataLink = $dataConnection->getConnected();
 
+        // Prepare out SQL statement and bind parameters to it
         $sql_statement = $dataLink->prepare("SELECT * FROM cst236_ecommerce_site.users WHERE username=? AND password=?");
         $sql_statement->bind_param("ss", $username, $password);
 
+        // Use our bound sql parameters passing in our function parameters
         $username = $p_username;
         $password = $p_password;
 
+        // Execute our query
         $sql_statement->execute();
-        $sql_statement->store_result();
 
-        $userCount = $sql_statement->num_rows;
+        // Get the results (returns a resultset object)
+        $result = $sql_statement->get_result();
+
+        // Declare holder array
+        $userArray = array();
+
+        //
+        while($user = $result->fetch_assoc()){
+            array_push($userArray, $user);
+        }
+
 
         $sql_statement->close();
         $dataLink->close();
 
-        return $userCount;
+        return $userArray;
 
         // FIX THIS MAKE IT RETURN USER ARRAY?
         // NEED TO BE ABLE TO GET THE USER ID, USERNAME, FIRST NAME, LAST NAME
