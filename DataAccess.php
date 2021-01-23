@@ -38,9 +38,9 @@ class DataAccess
         $first_name = $p_fname;
         $last_name = $p_lname;
         $date_of_birth = $p_dob;
-        $user_role = 0; // 0 is default for standard user
+        $user_role = 1; // 1 is default for standard, registered user
         $registration_date = date("Y-m-d");
-        $deleted = 0; //0 means active user
+        $deleted = 0; // 0 means active user
 
         // Execute the query
         $sql_statement->execute();
