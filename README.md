@@ -10,25 +10,25 @@
 
 [Project Description](#Project-Description)
 
-[Milestone 1: Login and Registration Form](#Milestone-1:-Login-and-Registration-Form)
+[Milestone 1: Login and Registration Form](#milestone-1-login-and-registration-form)
 
-[Milestone 2: Product Catalog and Product Search](#Milestone-2:-Product-Catalog-and-Product-Search)
+[Milestone 2: Product Catalog and Product Search](#milestone-2-product-catalog-and-product-search)
 
-[Milestone 3: User and Product Administration](#Milestone-3:-User-and-Product-Administration)
+[Milestone 3: User and Product Administration](#milestone-3-user-and-product-administration)
 
-[Milestone 4: Shopping Cart](#Milestone-4:-Shopping-Cart)
+[Milestone 4: Shopping Cart](#milestone-4-shopping-cart)
 
-[Milestone 5: Checkout Process](#Milestone-5:-Checkout-Process)
+[Milestone 5: Checkout Process](#milestone-5-checkout-process)
 
-[Milestone 6: Sales Report](#Milestone-6:-Sales-Report)
+[Milestone 6: Sales Report](#milestone-6-sales-report)
 
-[Milestone 7: Customization](#Milestone-7:-Customization)
+[Milestone 7: Customization](#milestone-7-customization)
 
-[Ecommerce Site Project Suggested Schema](#Ecommerce-Site-Project-Suggested-Schema)
+[Ecommerce Site Project Suggested Schema](#ecommerce-site-project-suggested-schema)
 
-[Site Pages](#Site-Pages)
+[Site Pages](#site-pages)
 
-[Wireframe Examples for PHP 2 Store Website Project](#Wireframe-Examples-for-PHP-2-Store-Website-Project)
+[Wireframe Examples for PHP 2 Store Website Project](#wireframe-examples-for-php-2-store-website-project)
 
 # Project Description
 
