@@ -2,29 +2,33 @@
 
 **Directions:** Throughout this course, students will create a secure Database Web Application using PHP and MySQL. **Note:** For details on building each milestone, refer to the &quot;CST-236 PHP 2 Grand Canyon University Course Introduction,&quot; located within the Course Materials for a video playlist.
 
+**Playlist Link:** https://www.youtube.com/playlist?list=PLhPyEFL5u-i2n4P6PVquXHPbuRDssZFAt
+
+[//]: <> (Minimally helpful. Videos are old, reference materials that do not exist for this class, and are largely out of order.)
+
 # Contents
 
-[Project Description 2](#_Toc530482490)
+[Project Description](#Project-Description)
 
-[Milestone 1: Login and Registration Form 3](#_Toc530482491)
+[Milestone 1: Login and Registration Form](#Milestone-1:-Login-and-Registration-Form)
 
-[Milestone 2: Product Catalog and Product Search 3](#_Toc530482492)
+[Milestone 2: Product Catalog and Product Search](#Milestone-2:-Product-Catalog-and-Product-Search)
 
-[Milestone 3: User and Product Administration 4](#_Toc530482493)
+[Milestone 3: User and Product Administration](#Milestone-3:-User-and-Product-Administration)
 
-[Milestone 4: Shopping Cart 5](#_Toc530482494)
+[Milestone 4: Shopping Cart](#Milestone-4:-Shopping-Cart)
 
-[Milestone 5: Checkout Process 6](#_Toc530482495)
+[Milestone 5: Checkout Process](#Milestone-5:-Checkout-Process)
 
-[Milestone 6: Sales Report 7](#_Toc530482496)
+[Milestone 6: Sales Report](#Milestone-6:-Sales-Report)
 
-[Milestone 7: Customization 8](#_Toc530482497)
+[Milestone 7: Customization](#Milestone-7:-Customization)
 
-[Ecommerce Site Project Suggested Schema 9](#_Toc530482498)
+[Ecommerce Site Project Suggested Schema](#Ecommerce-Site-Project-Suggested-Schema)
 
-[Site Pages 12](#_Toc530482499)
+[Site Pages](#Site-Pages)
 
-[Wireframe Examples for PHP 2 Store Website Project 13](#_Toc530482500)
+[Wireframe Examples for PHP 2 Store Website Project](#Wireframe-Examples-for-PHP-2-Store-Website-Project)
 
 # Project Description
 
