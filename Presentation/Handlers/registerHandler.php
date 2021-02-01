@@ -6,7 +6,7 @@
 //require_once "header.php";
 
 //testing
-require_once "DataAccess.php";
+require_once "../../DataAccess/UserDataAccess.php";
 
 // Get form values
 $firstName = $_POST["firstName"];
@@ -16,9 +16,9 @@ $emailAddress = $_POST["email"];
 $password = $_POST["password"];
 $dateOfBirth = $_POST["dateOfBirth"];
 
-// New DataAccess instance (TEMPORARY)
+// New UserDataAccess instance (TEMPORARY)
 // Should have another layer to abstract away directly acting on the database
-$updateDB = new DataAccess();
+$updateDB = new UserDataAccess();
 
 //count of how man users exist with the same username or email
 $isDupe = $updateDB->checkForDuplicateUser($username, $emailAddress);
@@ -30,7 +30,7 @@ if($isDupe <= 0){
     echo "Registration Successfully Submitted!";
     $updateDB->registerUser($firstName, $lastName, $username, $emailAddress, $password, $dateOfBirth);
 } else {
-    // User already present in the database
+    // User already present in the database, redirect back to register
     echo "Duplicate user found. Redirecting to back to register in 3 seconds....";
     header( "refresh:3;url=register.html");
 }

@@ -10,7 +10,7 @@
  */
 require_once "DatabaseConnection.php";
 
-class DataAccess
+class UserDataAccess
 {
     // Attributes (none atm)
     // private $variable
@@ -77,7 +77,7 @@ class DataAccess
         // Store results in an array
         $numOfExistingUsers = $sql_statement->num_rows;
 
-        // CLose connection
+        // Close connection
         $sql_statement->close();
         $dataLink->close();
 

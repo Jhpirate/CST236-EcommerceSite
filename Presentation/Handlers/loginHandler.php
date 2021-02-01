@@ -2,18 +2,18 @@
 /*
  * Copyright (c) 2021. Jared Heeringa - GCU Project
  */
-require_once "header.php"; //start session
+require_once "../../Utility/header.php"; //start session
 
 // Get username and password from our login form
 $username = $_POST["username"];
 $password = $_POST["password"];
 
 //testing
-require_once "DataAccess.php";
+require_once "../../DataAccess/UserDataAccess.php";
 
-// New DataAccess instance (TEMPORARY)
+// New UserDataAccess instance (TEMPORARY)
 // Should have another layer to abstract away directly acting on the database
-$updateDB = new DataAccess();
+$updateDB = new UserDataAccess();
 
 //Get the number of results for the query
 $registeredUsers = $updateDB->loginUser($username, $password);
