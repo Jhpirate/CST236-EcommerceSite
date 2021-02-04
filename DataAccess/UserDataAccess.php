@@ -112,7 +112,7 @@ class UserDataAccess
         // Declare holder array
         $userArray = array();
 
-        //
+        // Add all results to an array
         while($user = $result->fetch_assoc()){
             array_push($userArray, $user);
         }
@@ -121,9 +121,7 @@ class UserDataAccess
         $sql_statement->close();
         $dataLink->close();
 
+        // Return an array of users
         return $userArray;
-
-        // FIX THIS MAKE IT RETURN USER ARRAY?
-        // NEED TO BE ABLE TO GET THE USER ID, USERNAME, FIRST NAME, LAST NAME
     }
 }
