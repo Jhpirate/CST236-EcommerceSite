@@ -1,3 +1,6 @@
+<?php
+// Not a hack file GitHub...
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
