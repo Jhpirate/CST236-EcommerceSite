@@ -7,31 +7,116 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+    <!-- Image -->
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="../../../index.php">
+                <img src="../Images/SampleSiteLogo.svg" height="40" width="120">
+            </a>
+        </div>
+
+        <!-- Home Button Item -->
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item">
+                    Home
+                </a>
+                <a class="navbar-item">
+                    Home 2
+                </a>
+                <a class="navbar-item">
+                    Home 3
+                </a>
+            </div>
+
+            <!-- Login & Register Buttons -->
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-primary">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button is-white">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </nav>
 </head>
 <body>
 
-<form action="../../Handlers/registerHandler.php" method="post">
-    <label for="firstName">First Name</label>
-    <input type="text" name="firstName" id="firstName">
-    <br>
-    <label for="lastName">Last Name</label>
-    <input type="text" name="lastName" id="lastName">
-    <br>
-    <label for="username">Username</label>
-    <input type="text" name="username" id="username">
-    <br>
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email">
-    <br>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-    <br>
-    <label for="dateOfBirth">Date of Birth (MM-DD-YYYY)</label>
-    <input type="date" name="dateOfBirth" id="dateOfBirth">
-    <br>
-    <input type="reset" value="Clear Fields">
-    <input type="submit" value="Register">
-</form>
+
+<section class="section" id="registrationForm">
+    <div class="container">
+        <h1 class="title">Register</h1>
+
+        <form action="../../Handlers/registerHandler.php" method="post">
+            <!-- First Name -->
+            <div class="field">
+                <label class="label" for="firstName">First Name</label>
+                <div class="control">
+                    <input class="input" type="text" name="firstName" id="firstName" placeholder="First Name">
+                </div>
+            </div>
+
+            <!-- Last Name -->
+            <div class="field">
+                <label class="label" for="lastName">Last Name</label>
+                <div class="control">
+                    <input class="input" type="text" name="lastName" id="lastName" placeholder="Last Name">
+                </div>
+            </div>
+
+            <!-- Username -->
+            <div class="field">
+                <label class="label" for="username">Username</label>
+                <div class="control">
+                    <input class="input" type="text" name="username" id="username" placeholder="Username">
+                </div>
+            </div>
+
+            <!-- Email Address -->
+            <div class="field">
+                <label class="label" for="email">Email Address</label>
+                <div class="control">
+                    <input class="input" type="email" name="email" id="email" placeholder="Email Address">
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="field">
+                <label class="label" for="password">Password</label>
+                <div class="control">
+                    <input class="input" type="password" name="password" id="password" placeholder="Password">
+                </div>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="field">
+                <label class="label" for="dateOfBirth">Date of Birth (MM-DD-YYYY)</label>
+                <div class="control">
+                    <input class="input" type="date" name="dateOfBirth" id="dateOfBirth">
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <input class="button" type="reset" value="Clear Fields">
+            <input class="button is-dark" type="submit" value="Register">
+
+        </form>
+    </div>
+</section>
 
 </body>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>(C) 2021 - Jared Heeringa Test</p>
+    </div>
+</footer>
 </html>
