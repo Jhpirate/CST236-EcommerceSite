@@ -21,7 +21,8 @@
     </thead>
     <?php
 
-
+    // Can safely ignore $productList not being in scope
+    // $productList is grabbed from productSearchHandler when we include this file there
     for ($i = 0; $i < count($productList); $i++) {
         $currentProductID = $productList[$i]["ID"];
 
