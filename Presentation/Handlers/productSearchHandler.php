@@ -18,6 +18,13 @@ $cleaned_query = htmlspecialchars($search_query); // somewhat cleaner string val
     <meta charset="UTF-8">
     <title>Search | Results</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+    <!-- DataTables JQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bulma.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/dataTables.bulma.min.js"></script>
+
 </head>
 
 <body>
@@ -38,7 +45,7 @@ $cleaned_query = htmlspecialchars($search_query); // somewhat cleaner string val
         //include_once "_displayProductResults.php";
 
         if(count($productList) > 0) {
-            include_once "_displayProductResults.php";
+            include_once "_displayProductResults.php"; //table display
             echo count($productList) . " Results Found";
         } else {
             echo "No Results";
@@ -46,6 +53,13 @@ $cleaned_query = htmlspecialchars($search_query); // somewhat cleaner string val
         ?>
     </div>
 </div>
+
+<!-- Datatables Stuff (Dont really know JavaScript, but it works so there that) -->
+<script>
+    $(document).ready( function () {
+        $('#productsTable').DataTable();
+    } );
+</script>
 
 </body>
 </html>

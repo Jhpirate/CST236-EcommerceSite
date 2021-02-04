@@ -7,7 +7,7 @@
 
 ?>
 
-<table class="table">
+<table class="table" id="productsTable">
     <thead>
     <tr>
         <th>ID</th>
@@ -19,6 +19,7 @@
         <th>View More</th>
     </tr>
     </thead>
+    <tbody>
     <?php
 
     // Can safely ignore $productList not being in scope
@@ -44,4 +45,5 @@
     }
 
     ?>
+    </tbody>
 </table>
