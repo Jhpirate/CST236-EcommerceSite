@@ -17,17 +17,14 @@
             </a>
         </div>
 
-        <!-- Home Button Item -->
+        <!-- Nav Bar Links -->
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item">
+                <a class="navbar-item" href="../../../index.php">
                     Home
                 </a>
-                <a class="navbar-item">
-                    Home 2
-                </a>
-                <a class="navbar-item">
-                    Home 3
+                <a class="navbar-item" href="../Search/search.html">
+                    Search
                 </a>
             </div>
 
@@ -60,7 +57,7 @@
             <div class="field">
                 <label class="label" for="firstName">First Name</label>
                 <div class="control">
-                    <input class="input" type="text" name="firstName" id="firstName" placeholder="First Name">
+                    <input class="input" type="text" name="firstName" id="firstName" placeholder="First Name" required>
                 </div>
             </div>
 
@@ -68,7 +65,7 @@
             <div class="field">
                 <label class="label" for="lastName">Last Name</label>
                 <div class="control">
-                    <input class="input" type="text" name="lastName" id="lastName" placeholder="Last Name">
+                    <input class="input" type="text" name="lastName" id="lastName" placeholder="Last Name" required>
                 </div>
             </div>
 
@@ -76,7 +73,7 @@
             <div class="field">
                 <label class="label" for="username">Username</label>
                 <div class="control">
-                    <input class="input" type="text" name="username" id="username" placeholder="Username">
+                    <input class="input" type="text" name="username" id="username" placeholder="Username" required>
                 </div>
             </div>
 
@@ -84,7 +81,7 @@
             <div class="field">
                 <label class="label" for="email">Email Address</label>
                 <div class="control">
-                    <input class="input" type="email" name="email" id="email" placeholder="Email Address">
+                    <input class="input" type="email" name="email" id="email" placeholder="Email Address" required>
                 </div>
             </div>
 
@@ -92,7 +89,7 @@
             <div class="field">
                 <label class="label" for="password">Password</label>
                 <div class="control">
-                    <input class="input" type="password" name="password" id="password" placeholder="Password">
+                    <input class="input" type="password" name="password" id="password" placeholder="Password" required>
                 </div>
             </div>
 
@@ -100,13 +97,13 @@
             <div class="field">
                 <label class="label" for="dateOfBirth">Date of Birth (MM-DD-YYYY)</label>
                 <div class="control">
-                    <input class="input" type="date" name="dateOfBirth" id="dateOfBirth">
+                    <input class="input" type="date" name="dateOfBirth" id="dateOfBirth" required>
                 </div>
             </div>
 
             <!-- Buttons -->
             <input class="button" type="reset" value="Clear Fields">
-            <input class="button is-dark" type="submit" value="Register">
+            <input class="button is-primary" type="submit" value="Register">
 
         </form>
     </div>
