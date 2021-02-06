@@ -26,11 +26,13 @@ if(count($registeredUsers) == 1) {
     // Set session variables
     $_SESSION["isLoggedIn"] = true;
     $_SESSION["userID"] = $registeredUsers[0]["ID"];
+    $_SESSION["username"] = $registeredUsers[0]["username"];
     $_SESSION["firstName"] = $registeredUsers[0]["first_name"];
     $_SESSION["lastName"] = $registeredUsers[0]["last_name"];
     $_SESSION["userRole"] = $registeredUsers[0]["user_role"];
 
-    echo "Login success";
+    //echo "Login success";
+    include_once "../Views/Login/loginSuccess.html";
 
 } elseif (count($registeredUsers) > 1){
     // This case should never be visited because
@@ -43,5 +45,6 @@ if(count($registeredUsers) == 1) {
 } else {
     // 0 results from DB means user does not exist
     $_SESSION["isLoggedIn"] = false;
-    echo "Login failed!";
+    //echo "Login failed!";
+    include_once "../Views/Login/loginFailed.html";
 }
