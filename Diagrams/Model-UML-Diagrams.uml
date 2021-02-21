@@ -4,12 +4,12 @@
   <OriginalElement>/Applications/MAMP/htdocs/CST236-EcommerceSite/Diagrams</OriginalElement>
   <nodes>
     <node x="621.0" y="761.0">\Product</node>
-    <node x="0.0" y="0.0">\Person</node>
     <node x="0.0" y="761.0">\Address</node>
+    <node x="0.0" y="0.0">\Person</node>
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="628.0" y="650.0" />
+  <settings layout="Hierarchic Group" zoom="0.3882783882783883" x="547.5" y="672.5" />
   <SelectedNodes>
     <node>\Product</node>
   </SelectedNodes>
