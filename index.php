@@ -24,6 +24,8 @@
             <li><a href="Presentation/Views/Login/login.html">Login.html</a></li>
             <li><a href="Presentation/Views/Register/register.html">Register.html</a></li>
             <li><a href="Presentation/Views/Search/search.html">Search.html</a></li>
+            <li><a href="Presentation/Views/EditProduct/editProducts.php">Edit Products</a></li>
+            <li><a href="Presentation/Views/EditUsers/editUsers.php">Edit Users</a></li>
         </ul>
     </div>
 </section>
