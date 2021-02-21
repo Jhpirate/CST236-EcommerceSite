@@ -124,4 +124,96 @@ class UserDataAccess
         // Return an array of users
         return $userArray;
     }
+
+    // Get all user from the DB
+    public function getAllUsers() {
+        // New instance of DatabaseConnection
+        $dataConnection = new DatabaseConnection();
+        $dataLink = $dataConnection->getConnected();
+
+        // SQL Statement
+        $sql_statement = $dataLink->prepare("SELECT * from cst236_ecommerce_site.users");
+
+        $sql_statement->execute();
+
+        $results = $sql_statement->get_result();
+
+        $allUsersArray = array();
+
+        // Add all results to an array
+        while($user = $results->fetch_assoc()){
+            array_push($allUsersArray, $user);
+        }
+
+        //close connection
+        $sql_statement->close();
+        $dataLink->close();
+
+        return $allUsersArray;
+    }
+
+    // Get user by their ID
+    public function getUserByID($p_userID) {
+        // New instance of DatabaseConnection
+        $dataConnection = new DatabaseConnection();
+        $dataLink = $dataConnection->getConnected();
+
+        //Prepare and bind
+        $sql_statement = $dataLink->prepare("SELECT * from cst236_ecommerce_site.users where ID = ?");
+        $sql_statement->bind_param("i", $userID);
+
+        $userID = $p_userID;
+        $sql_statement->execute();
+
+        $results = $sql_statement->get_result();
+
+        //close connection
+        $sql_statement->close();
+        $dataLink->close();
+
+        return $results->fetch_assoc();
+    }
+
+    //Delete user by their ID
+    // really just updating the DB isDeleted field to 1
+    public function deleteUserByID($p_ID) {
+        $dataConnection = new DatabaseConnection();
+        $dataLink = $dataConnection->getConnected();
+
+        //prepare
+        $sql_statement = $dataLink->prepare("UPDATE cst236_ecommerce_site.users SET deleted=1 WHERE ID=?");
+        $sql_statement->bind_param("i", $ID);
+
+        $ID = $p_ID;
+        $sql_statement->execute();
+
+        //close connection
+        $sql_statement->close();
+        $dataLink->close();
+    }
+
+
+    //Update the user with new information
+    public function updateUserByID($p_newUsername, $p_newEmail, $p_newPassword, $p_newFirstName, $p_newLastName, $p_newDOB, $p_ID) {
+        $dataConnection = new DatabaseConnection();
+        $dataLink = $dataConnection->getConnected();
+
+        //prepare
+        $sql_statement = $dataLink->prepare("UPDATE cst236_ecommerce_site.users SET username=?, email_address=?, password=?, first_name=?, last_name=?, date_of_birth=? WHERE ID=?");
+        $sql_statement->bind_param("ssssssi", $username, $email_address, $password, $first_name, $last_name, $date_of_birth, $ID);
+
+        $username = $p_newUsername;
+        $email_address = $p_newEmail;
+        $password = $p_newPassword;
+        $first_name = $p_newFirstName;
+        $last_name = $p_newLastName;
+        $date_of_birth = $p_newDOB;
+        $ID = $p_ID;
+
+        $sql_statement->execute();
+
+        //close connection
+        $sql_statement->close();
+        $dataLink->close();
+    }
 }
