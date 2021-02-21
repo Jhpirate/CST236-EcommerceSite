@@ -31,6 +31,9 @@ $cleaned_query = htmlspecialchars($search_query); // somewhat cleaner string val
 
 <div class="section" id="Results">
     <div class="container">
+
+        <h1 class="title">Search Results</h1>
+
         <?php
 
         // Echo out the value to the user (Mostly for debug purposes)
