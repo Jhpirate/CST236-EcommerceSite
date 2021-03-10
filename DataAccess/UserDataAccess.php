@@ -153,6 +153,10 @@ class UserDataAccess
     }
 
     // Get user by their ID
+    /* TODO Make function return an object rather than an array
+    Should look like $person = new Person(..);
+    return $person;
+    */
     public function getUserByID($p_userID) {
         // New instance of DatabaseConnection
         $dataConnection = new DatabaseConnection();
