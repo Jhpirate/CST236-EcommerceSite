@@ -34,6 +34,9 @@ $currentProductPrice = $currentProduct[0]["price"];
     <meta charset="UTF-8">
     <title>View Product</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+    <?php include "../../../_navigationBar.php"; ?>
+
 </head>
 <body>
 
@@ -46,7 +49,7 @@ $currentProductPrice = $currentProduct[0]["price"];
             <!-- Column 1 (Photo?) -->
             <div class="column">
                 <figure class="is-square">
-                    <img src="../Images/ProductPlaceholder.svg">
+                    <img src="../Images/ProductPlaceholder.svg" alt="PlaceHolderLogo">
                 </figure>
             </div>
 
