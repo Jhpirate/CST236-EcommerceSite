@@ -32,5 +32,5 @@ if($isDupe <= 0){
 } else {
     // User already present in the database, redirect back to register
     echo "Duplicate user found. Redirecting to back to register in 3 seconds....";
-    header( "refresh:3;url=register.html");
+    header( "refresh:3;url=register.php");
 }
