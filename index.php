@@ -23,8 +23,8 @@
         <div class="columns">
             <div class="column">
                 <h1 class="title">Test Col 1</h1>
-                <h1 class="subtitle">I don't really know what else to put on this mina page yet so here is a bunch of
-                    dummy text that I am writing right now, yeah right now.</h1>
+                <h1 class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Malesuada pellentesque elit eget gravida cum sociis natoque penatibus.</h1>
             </div>
             <div class="column">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
