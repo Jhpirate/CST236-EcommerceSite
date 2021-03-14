@@ -12,7 +12,7 @@ $username = $_SESSION["username"];
 $userRole = $_SESSION["userRole"];
 
 // Override default session values for testing
-$userRole = 99;
+//$userRole = 99;
 //$isLoggedIn = false;
 ?>
 
@@ -21,8 +21,8 @@ $userRole = 99;
     <div class="navbar-brand">
 
         <!-- Desktop expanded -->
-        <a class="navbar-item" href="index.php">
-            <img src="Presentation/Views/Images/SampleSiteLogo.svg" width="114" height="30" alt="SiteLogo">
+        <a class="navbar-item" href="/CST236-EcommerceSite/index.php">
+            <img src="/CST236-EcommerceSite/Presentation/Views/Images/SampleSiteLogo.svg" width="114" height="30" alt="SiteLogo">
         </a>
 
         <!-- Hamburger menu that only appears on touch devices -->
@@ -37,9 +37,9 @@ $userRole = 99;
     <!-- Nav bar items -->
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item">Home</a>
+            <a class="navbar-item" href="/CST236-EcommerceSite/index.php">Home</a>
 
-            <a class="navbar-item" href="Presentation/Views/Search/search.html">Search Products</a>
+            <a class="navbar-item" href="/CST236-EcommerceSite/Presentation/Views/Search/search.php">Search Products</a>
 
             <?php
             //check if user is admin (role ID of 99)
@@ -49,8 +49,8 @@ $userRole = 99;
                 <a class="navbar-link">Admin</a>
 
                 <div class="navbar-dropdown">
-                    <a class="navbar-item" href="Presentation/Views/EditUsers/editUsers.php">Edit Users</a>
-                    <a class="navbar-item" href="Presentation/Views/EditProduct/editProducts.php">Edit Products</a>
+                    <a class="navbar-item" href="/CST236-EcommerceSite/Presentation/Views/EditUsers/editUsers.php">Edit Users</a>
+                    <a class="navbar-item" href="/CST236-EcommerceSite/Presentation/Views/EditProduct/editProducts.php">Edit Products</a>
                     <hr class="navbar-divider">
                     <a class="navbar-item">Site Info</a>
                 </div>
@@ -69,8 +69,8 @@ $userRole = 99;
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary" href="Presentation/Views/Register/register.html"><strong>Sign up</strong></a>
-                    <a class="button is-light" href="Presentation/Views/Login/login.html">Log in</a>
+                    <a class="button is-primary" href="/CST236-EcommerceSite/Presentation/Views/Register/register.php"><strong>Sign up</strong></a>
+                    <a class="button is-light" href="/CST236-EcommerceSite/Presentation/Views/Login/login.php">Log in</a>
                 </div>
             </div>
         </div>
@@ -84,7 +84,8 @@ $userRole = 99;
                 <a class="navbar-item is-light">Welcome, <?php echo $username ?></a>
 
                 <div class="navbar-item buttons">
-                    <a class="button is-danger" href="Presentation/Handlers/logout.php"><strong>Logout</strong></a>
+                    <a class="button is-danger" href="/CST236-EcommerceSite/Presentation/Handlers/logout.php"><strong>Logout</strong></a>
+                    <a class="button is-info" href="/CST236-EcommerceSite/Presentation/Views/ViewCart/showCart.php"><strong>View Cart</strong></a>
                 </div>
             </div>
 
