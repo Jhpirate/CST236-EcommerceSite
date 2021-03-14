@@ -26,7 +26,7 @@ include_once "../../../Utility/header.php"
                 <a class="navbar-item" href="../../../index.php">
                     Home
                 </a>
-                <a class="navbar-item" href="../Search/search.html">
+                <a class="navbar-item" href="../Search/search.php">
                     Search
                 </a>
             </div>
