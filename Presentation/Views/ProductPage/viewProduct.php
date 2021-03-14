@@ -77,7 +77,8 @@ $currentProductPrice = $currentProduct[0]["price"];
                 </p>
                 <br>
 
-                <form>
+                <form method="get" action="/CST236-EcommerceSite/Presentation/Handlers/addToCart.php">
+                    <input type="hidden" name="productID" value="<?php echo $currentProductID?>">
                     <input class="button input is-primary" type="submit" value="Add to Cart">
                 </form>
 
