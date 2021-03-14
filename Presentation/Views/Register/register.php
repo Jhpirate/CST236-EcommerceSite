@@ -9,41 +9,8 @@
     <title>Register</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
-    <!-- Image -->
-    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" href="../../../index.php">
-                <img src="../Images/SampleSiteLogo.svg" height="40" width="120">
-            </a>
-        </div>
+    <?php include_once "../../../_navigationBar.php"; ?>
 
-        <!-- Nav Bar Links -->
-        <div id="navbarBasicExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="../../../index.php">
-                    Home
-                </a>
-                <a class="navbar-item" href="../Search/search.html">
-                    Search
-                </a>
-            </div>
-
-            <!-- Login & Register Buttons -->
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
-                        </a>
-                        <a class="button is-white">
-                            Log in
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </nav>
 </head>
 <body>
 

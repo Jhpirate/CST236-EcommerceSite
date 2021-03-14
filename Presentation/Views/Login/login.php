@@ -8,6 +8,9 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+    <?php include_once "../../../_navigationBar.php"; ?>
+
 </head>
 <body>
 
