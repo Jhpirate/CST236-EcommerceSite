@@ -12,6 +12,7 @@ class ProductDataAccess
 {
 
     // Get product by ID
+    // TODO: Make function return a Product object
     public function findProductByID($p_productID) {
         // New instance of DatabaseConnection
         $dataConnection = new DatabaseConnection();
@@ -44,6 +45,7 @@ class ProductDataAccess
     // ---------------
     // Search all fields for a match
     // ---------------
+    // TODO: Make function return an array of Product objects
     public function findProduct($p_search) {
         // New instance of DatabaseConnection
         $dataConnection = new DatabaseConnection();
@@ -79,6 +81,7 @@ class ProductDataAccess
     }
 
     //get all products from the database
+    // TODO: Make function return an array of Product objects
     public function getAllProducts() {
 
         // New instance of DatabaseConnection
@@ -116,7 +119,7 @@ class ProductDataAccess
 
         //prepare and bind
         $sql_statement = $dataLink->prepare("UPDATE cst236_ecommerce_site.products SET product_name=?, product_description=?, size=?, color=?, price=? WHERE ID=?");
-        $sql_statement->bind_param("ssssii", $product_name, $product_desc, $size, $color, $price, $ID);
+        $sql_statement->bind_param("ssssdi", $product_name, $product_desc, $size, $color, $price, $ID);
 
         $product_name = $p_newName;
         $product_desc = $p_newDesc;
@@ -145,5 +148,43 @@ class ProductDataAccess
 
         $sql_statement->close();
         $dataLink->close();
+    }
+
+    // Get product by ID
+    // UPDATED TO RETURN OBJECT
+    // CANT OVERLOAD LIKE C++ OR JAVA SO NEW ONE HERE
+    // WILL BECOME STANDARD EVENTUALLY, but too much work to change all existing uses of arrays rn
+    public function findProductByID_obj($p_productID) {
+        //allow us to use our Product model
+
+        // New instance of DatabaseConnection
+        $dataConnection = new DatabaseConnection();
+        $dataLink = $dataConnection->getConnected();
+
+        // SQL statement (prepare and bind)
+        $sql = $dataLink->prepare("SELECT * FROM cst236_ecommerce_site.products WHERE ID = ?");
+        $sql->bind_param("i", $ID);
+
+        $ID = $p_productID; // Use our parameter as our value to find in our query
+
+        // Execute the query and store the results
+        $sql->execute();
+        $result = $sql->get_result();
+
+        // Initialize the products array
+        $products_array = array();
+
+        while($product = $result->fetch_assoc()) {
+            array_push($products_array, $product);
+        }
+
+        // Close data connection
+        $sql->close();
+        $dataLink->close();
+
+        //hacky way of converting old function returning an array into an object return
+        $product = new Product($products_array[0]["ID"], $products_array[0]["product_name"], $products_array[0]["product_description"], $products_array[0]["size"], $products_array[0]["color"], $products_array[0]["price"]);
+
+        return $product;
     }
 }
