@@ -3,17 +3,13 @@
   <ID>PHP</ID>
   <OriginalElement>/Applications/MAMP/htdocs/CST236-EcommerceSite/Diagrams</OriginalElement>
   <nodes>
-    <node x="0.0" y="650.0">\OrderDataAccess</node>
-    <node x="0.0" y="441.0">\ProductDataAccess</node>
-    <node x="0.0" y="231.0">\DatabaseConnection</node>
-    <node x="0.0" y="0.0">\UserDataAccess</node>
+    <node x="0.0" y="0.0">\OrderBusinessService</node>
+    <node x="0.0" y="231.0">\CCVerificationBusinessService</node>
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="388.5" y="330.0" />
-  <SelectedNodes>
-    <node>\OrderDataAccess</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="1.0" x="579.0" y="289.0" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
     <Category>Constants</Category>
