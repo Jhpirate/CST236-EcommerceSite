@@ -5,6 +5,8 @@
 
 // Make sure autoloader is loaded first, then header to start the session
 require_once "../../../Utility/autoloader.php";
+//require_once "../../../DataAccess/ProductDataAccess.php"; // autoloader just broke... why? NOTHING CHANGED - Session somehow corrupted
+//require_once "../../../DataAccess/UserDataAccess.php";
 require_once "../../../Utility/header.php";
 
 // Allow access to users and products
