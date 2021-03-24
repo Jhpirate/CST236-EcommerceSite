@@ -9,6 +9,7 @@
 
 spl_autoload_register('autoloadModels');
 spl_autoload_register("autoLoadDAO");
+spl_autoload_register("autoLoadBS");
 
 function autoloadModels($className) {
     // $_SERVER['DOCUMENT_ROOT'] to get to the root folder structure
@@ -27,6 +28,18 @@ function autoloadModels($className) {
 // TODO Should eventually load business layer, not DataAccess directly
 function autoLoadDAO($className) {
     $path = $_SERVER['DOCUMENT_ROOT'] . "/DataAccess/";
+    $extension = ".php";
+    $fullPath = $path . $className . $extension;
+
+    if(!file_exists($fullPath)) {
+        return false;
+    }
+
+    include_once $fullPath;
+}
+
+function autoLoadBS($className) {
+    $path = $_SERVER['DOCUMENT_ROOT'] . "/BusinessServices/";
     $extension = ".php";
     $fullPath = $path . $className . $extension;
 
