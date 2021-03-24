@@ -2,7 +2,8 @@
 /*
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
-require_once "../../../DataAccess/UserDataAccess.php";
+//require_once "../../../DataAccess/UserDataAccess.php";
+require_once "../../../Utility/autoloader.php";
 
 // get the user ID to edit
 $userToEdit = $_GET["userID"];
