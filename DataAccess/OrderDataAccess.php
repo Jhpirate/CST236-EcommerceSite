@@ -52,7 +52,7 @@ class OrderDataAccess
 
         //return id of last line item inserted
 
-        $sql_statement = $DB_connection->prepare("INSERT INTO cst236_ecommerce_site.order_detailsX (order_id, product_id, order_qty, current_price, current_description) VALUES (?, ?, ?, ?, ?)");
+        $sql_statement = $DB_connection->prepare("INSERT INTO cst236_ecommerce_site.order_details (order_id, product_id, order_qty, current_price, current_description) VALUES (?, ?, ?, ?, ?)");
 
         if(!$sql_statement) {
             echo "Statement error";
