@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
@@ -49,7 +50,7 @@
 
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>(c) <?php echo date("Y")?> - Jared Heeringa Test</p>
+        <p>(c) <?php echo date("Y")?> - Jared Heeringa Ecommerce Site</p>
     </div>
 </footer>
 
