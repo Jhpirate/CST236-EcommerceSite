@@ -7,7 +7,7 @@ require_once "../../Utility/autoloader.php";
 require_once "../../Utility/header.php";
 
 // Check if a user is logged in and there is an active cart stored in their session
-if(isset($_SESSION["userCartStorage"])) {
+if (isset($_SESSION["userCartStorage"])) {
     $cart = $_SESSION["userCartStorage"];
 } else {
     echo "Please login first. Cart is Empty!";
@@ -16,7 +16,7 @@ if(isset($_SESSION["userCartStorage"])) {
 
 
 // First check that a "valid" credit card was entered
-// TODO: Pull this out of an included file. Do it here or in the card class
+// TODO: Pull this out of an included file. Do it here or in the card class. Too little to be an include & obfuscates more than it helps
 require_once "_validateCreditCard.php"; //partial file
 
 
@@ -35,3 +35,10 @@ echo "CHECKOUT PROCESS INITIATED";
 // Create a new order object
 $orderBS = new OrderBusinessService();
 $orderBS->checkout($cart);
+
+// Clear cart
+unset($_SESSION["userCartStorage"]);
+
+
+// SHOW SUCCESS MESSAGE THAT REDIRECTS HOME
+header("Location: ../Views/ViewCart/checkoutSuccess.html");
