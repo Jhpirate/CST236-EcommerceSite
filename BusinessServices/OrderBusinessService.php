@@ -2,60 +2,72 @@
 /*
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
+
 //require_once "Utility/autoloader.php";
 
 class OrderBusinessService
 {
 
-    //old: public function checkout($order, $cart) {
-    public function checkout($cart) {
-        // create shared data connection
+    /**
+     * Main Checkout function
+     * Creates main order and order line items
+     * @param $cart
+     */
+    public function checkout($cart)
+    {
+
+        // Create shared data connection
         $database = new DatabaseConnection();
         $connection = $database->getConnected();
 
-        //disable autocommit
+        // Disable autocommit for ATOMIC transaction
         $connection->autocommit(false);
         $connection->begin_transaction();
 
-        // variable for if anything goes wrong with adding line items
+        // Sanity check variable
+        // If set to false by any transaction element, do NOT commit changes
         $shouldCommit = true;
 
-        // Order data access & product data access
+        // Order data access & product data access (allow DB access to products and users)
         $orderDataAccess = new OrderDataAccess();
         $productAccess = new ProductDataAccess();
 
+        // ----
         // BEGIN TRANSACTION
 
-        // create new line in the order table (createNewOrder from OrderDataAccess)
+        // Create new line in the order table (uses createNewOrder from OrderDataAccess)
+        // Should return the id of last inserted element (our orderID)
         $orderID = $orderDataAccess->createNewOrder($cart, $connection);
 
-        // check that we actually received a order id
-        if($orderID == -1) {
+        // Check that an orderID was returned (-1 indicates error)
+        if ($orderID == -1) {
             $shouldCommit = false;
         }
 
-        //create multiple lines in the order details table
+        // Create line items in the order details table
         foreach ($cart->getItems() as $productID => $qty) {
-            //product access
+            // Get the current product by its ID from the DB
             $product = $productAccess->findProductByID_obj($productID);
 
-            //create new order details objects with item values
+            // Create new order details objects with values from each line item
             $orderDetails = new OrderDetails($orderID, $productID, $qty, $product->getPrice(), $product->getProductDescription());
 
-            // add the line item details
-            if($shouldCommit) {
+            // If order creation failed, don't create the line items
+            if ($shouldCommit) {
+                // Add the line item details using addOrderLineItems method from OrderDataAccess
                 $detailsOK = $orderDataAccess->addOrderLineItems($orderID, $orderDetails, $connection);
 
-                if(!$detailsOK || $detailsOK == -1) {
+                // If detailsOk is false or returns -1, error has occurred and execution should be stopped
+                if (!$detailsOK || $detailsOK == -1) {
                     $shouldCommit = false;
+                    break;
                 }
-
             }
         }
 
 
-        //commit the changes if success
-        if($shouldCommit) {
+        // Commit the changes if both statements have executed successfully (No flag triggered)
+        if ($shouldCommit) {
             echo "Transaction success";
             $connection->commit();
         } else {
@@ -67,27 +79,35 @@ class OrderBusinessService
     }
 
 
-    public function createNewOrder() {
+    // Methods not yet implemented or demonstrated
+    // No mention of them in any documents, but videos had them so they are here
+    public function createNewOrder()
+    {
 
     }
 
-    public function getAllOrders() {
+    public function getAllOrders()
+    {
 
     }
 
-    public function deleteItem() {
+    public function deleteItem()
+    {
 
     }
 
-    public function findByID() {
+    public function findByID()
+    {
 
     }
 
-    public function updateOne() {
+    public function updateOne()
+    {
 
     }
 
-    public function getOrderDetails() {
+    public function getOrderDetails()
+    {
 
     }
 }
