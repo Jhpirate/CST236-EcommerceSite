@@ -3,11 +3,11 @@
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
 
-//Load autoloader and header
+// Load autoloader and header
 require_once "../../../Utility/autoloader.php";
 require_once "../../../Utility/header.php";
 
-// Allow access to users and products
+// Allow access to users and products from DB
 $productAccess = new ProductDataAccess();
 $userDataAccess = new UserDataAccess();
 ?>
@@ -19,6 +19,7 @@ $userDataAccess = new UserDataAccess();
     <title>Checkout</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
+    <!-- Navigation Bar Include -->
     <?php include "../../../_navigationBar.php"; ?>
 
 </head>
@@ -65,9 +66,9 @@ $userDataAccess = new UserDataAccess();
 
                         <!-- STATE COLUMN -->
                         <div class="column is-one-quarter">
+
                             <label class="label" for="state">State</label>
 
-                            <!-- STATE SELECTION FIELD -->
                             <div class="control">
                                 <div class="select">
                                     <select name="state" id="state" required>
@@ -129,7 +130,6 @@ $userDataAccess = new UserDataAccess();
 
                         <!-- ZIP CODE COLUMN -->
                         <div class="column is-three-quarters">
-                            <!-- ZIP CODE FIELD -->
                             <div class="field">
                                 <label class="label" for="zipCode">Zip Code</label>
                                 <input class="input" type="text" name="zipCode" placeholder="01234" id="zipCode"
@@ -158,7 +158,9 @@ $userDataAccess = new UserDataAccess();
                         <!-- MONTH COLUMN-->
                         <div class="column">
                             <div class="field">
+
                                 <label class="label" for="creditCardExpMonth">Expiration Month</label>
+
                                 <div class="select">
                                     <select name="creditCardExpMonth" id="creditCardExpMonth">
                                         <option value='1'>January</option>
@@ -181,20 +183,22 @@ $userDataAccess = new UserDataAccess();
                         <!-- EXPIRATION YEAR -->
                         <div class="column">
                             <div class="field">
+
                                 <label class="label" for="creditCardExpYear">Expiration Year</label>
+
                                 <div class="select">
                                     <select name="creditCardExpYear" id="creditCardExpYear">
-                                        <option value="2030">2030</option>
-                                        <option value="2029">2029</option>
-                                        <option value="2028">2028</option>
-                                        <option value="2027">2027</option>
-                                        <option value="2026">2026</option>
-                                        <option value="2025">2025</option>
-                                        <option value="2024">2024</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
                                         <option value="2020">2020</option>
+                                        <option value="2021">2021</option>
+                                        <option value="2022">2022</option>
+                                        <option value="2023">2023</option>
+                                        <option value="2024">2024</option>
+                                        <option value="2025">2025</option>
+                                        <option value="2026">2026</option>
+                                        <option value="2027">2027</option>
+                                        <option value="2028">2028</option>
+                                        <option value="2029">2029</option>
+                                        <option value="2030">2030</option>
                                     </select>
                                 </div>
                             </div>
@@ -222,26 +226,35 @@ $userDataAccess = new UserDataAccess();
 
                     <tbody>
                     <?php
-                    //output cart contents here
+                    // Output cart contents below
+
+                    // Get user cart session variable
                     $cart = $_SESSION["userCartStorage"];
 
+                    // start items counter at 1
                     $cartCount = 1;
 
                     // loop through cart items and display them here as well (no edit options)
                     foreach ($cart->getItems() as $productID => $qty) {
-                        $product = $productAccess->findProductByID_obj($productID);
 
-                        echo "<tr>";
+                        // only display items if the cart is set
+                        if(isset($_SESSION["userCartStorage"])) {
+                            // Get product from DB based on ID
+                            $product = $productAccess->findProductByID_obj($productID);
 
-                        echo "<td>" . $cartCount . "</td>";
-                        echo "<td>PHOTO_HERE</td>";
-                        echo "<td>" . $product->getProductName() . "</td>";
-                        echo "<td>" . $qty . "</td>";
-                        echo "<td>$" . number_format($product->getPrice(), 2) . "</td>";
+                            // Output table row for each product
+                            echo "<tr>";
 
-                        echo "</tr>";
+                            echo "<td>" . $cartCount . "</td>";
+                            echo "<td>PHOTO_HERE</td>";
+                            echo "<td>" . $product->getProductName() . "</td>";
+                            echo "<td>" . $qty . "</td>";
+                            echo "<td>$" . number_format($product->getPrice(), 2) . "</td>";
 
-                        $cartCount++;
+                            echo "</tr>";
+
+                            $cartCount++;
+                        }
                     }
 
                     ?>
@@ -260,12 +273,13 @@ $userDataAccess = new UserDataAccess();
                 <!-- show the checkout and cancel buttons -->
                 <div class="buttons is-justify-content-space-evenly">
 
-                    <button class="button is-danger is-large" type="submit" form="">Cancel</button>
+                    <form method="post" action="showCart.php">
+                        <input class="button is-danger is-large" type="submit" value="Cancel">
+                    </form>
+
                     <button class="button is-primary is-large" type="submit" form="creditCardInfo">Checkout</button>
 
                 </div>
-
-
             </div>
         </div>
     </div>
