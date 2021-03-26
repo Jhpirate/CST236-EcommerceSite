@@ -20,6 +20,8 @@ require_once "../../../Utility/autoloader.php";
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/dataTables.bulma.min.js"></script>
 
+    <?php include "../../../_navigationBar.php"; ?>
+
 </head>
 <body>
 
