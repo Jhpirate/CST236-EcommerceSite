@@ -2,22 +2,23 @@
 /*
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
+
 //require_once "../Utility/autoloader.php";
 
 class OrderDataAccess
 {
 
-    public function createNewOrder($cart, $DB_connection) {
+    public function createNewOrder($cart, $DB_connection)
+    {
         // Database connection is passed in as parameter from OrderBusinessService
 
         // prepare sql statement
         $sql_statement = $DB_connection->prepare("INSERT INTO cst236_ecommerce_site.orders (date, total_price, users_fk, user_address_fk) values (?, ?, ?, ?)");
 
         // check if prepare was successful
-        if(!$sql_statement){
+        if (!$sql_statement) {
             echo "Binding messed up";
             return -1;
-            exit;
         }
 
 
@@ -37,7 +38,7 @@ class OrderDataAccess
         $sql_statement->execute();
 
         //check if it was inserted successfully
-        if($sql_statement->affected_rows > 0) {
+        if ($sql_statement->affected_rows > 0) {
             //$DB_connection->close();
             return $sql_statement->insert_id; //return the last inserted row ID (this is our order ID)
         } else {
@@ -46,7 +47,8 @@ class OrderDataAccess
         }
     }
 
-    public function addOrderLineItems($orderID, $orderDetails, $DB_connection) {
+    public function addOrderLineItems($orderID, $orderDetails, $DB_connection)
+    {
 
         //create new lines in the order details table
 
@@ -54,7 +56,7 @@ class OrderDataAccess
 
         $sql_statement = $DB_connection->prepare("INSERT INTO cst236_ecommerce_site.order_details (order_id, product_id, order_qty, current_price, current_description) VALUES (?, ?, ?, ?, ?)");
 
-        if(!$sql_statement) {
+        if (!$sql_statement) {
             echo "Statement error";
             return -1;
         }
@@ -69,7 +71,7 @@ class OrderDataAccess
         $sql_statement->bind_param("iiids", $orderID, $productID, $productQTY, $productCurrentPrice, $productCurrentDesc);
         $sql_statement->execute();
 
-        if($sql_statement->affected_rows > 0) {
+        if ($sql_statement->affected_rows > 0) {
             //success
             return $DB_connection->insert_id;
         } else {
