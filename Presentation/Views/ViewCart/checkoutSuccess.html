@@ -1,0 +1,38 @@
+<!--
+  ~ Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Checkout Success</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+<body>
+
+<section class="hero is-success is-fullheight" id="LoginSuccessPage">
+    <div class="hero-body">
+        <div class="">
+            <p class="title">
+                CHECKOUT SUCCESS
+            </p>
+            <p class="subtitle">
+                Thank you for you order.
+            </p>
+            <p class="subtitle is-italic">
+                (You should automatically be redirected back <a href="index.php"><u>home</u></a> in 5 seconds)
+            </p>
+        </div>
+    </div>
+</section>
+
+</body>
+
+<script>
+    setTimeout(function () {
+        window.location.href = '../../../index.php';
+    }, 5000);
+</script>
+</html>
