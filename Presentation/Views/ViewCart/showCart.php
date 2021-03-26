@@ -124,7 +124,9 @@ UPDATE_QTY;
 
         <!-- Checkout Button -->
         <div class="buttons is-right">
-            <button class="button is-info">Checkout</button>
+            <form method="post" action="checkout.php">
+                <input type="submit" class="button is-info" value="Checkout">
+            </form>
         </div>
     </div>
 </section>
