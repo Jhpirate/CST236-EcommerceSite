@@ -7,6 +7,7 @@
  * This file access any thing from the database dealing with products
  */
 require_once "DatabaseConnection.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/BusinessServices/Model/Product.php";
 
 class ProductDataAccess
 {

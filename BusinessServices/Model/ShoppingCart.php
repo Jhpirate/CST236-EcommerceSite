@@ -3,6 +3,8 @@
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
 
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/ProductDataAccess.php";
+
 class ShoppingCart
 {
     // Class attributes for a session based cart storage

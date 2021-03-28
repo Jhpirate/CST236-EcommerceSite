@@ -6,6 +6,9 @@
 require_once "../../Utility/autoloader.php";
 require_once "../../Utility/header.php";
 
+//autoloader broke so theres this...
+require_once "../../BusinessServices/Model/ShoppingCart.php";
+
 // Get product ID from clicked add to cart button
 $productID = $_GET["productID"];
 

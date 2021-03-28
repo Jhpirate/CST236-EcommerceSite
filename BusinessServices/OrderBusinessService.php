@@ -4,6 +4,12 @@
  */
 
 //require_once "Utility/autoloader.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/DatabaseConnection.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/OrderDataAccess.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/ProductDataAccess.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/BusinessServices/Model/ShoppingCart.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/BusinessServices/Model/OrderDetails.php";
+
 
 class OrderBusinessService
 {

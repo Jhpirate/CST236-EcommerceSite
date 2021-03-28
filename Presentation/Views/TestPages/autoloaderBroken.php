@@ -17,4 +17,9 @@ if(file_exists($file)) {
     echo "<br>Not Valid";
 }
 
+$cart = new ShoppingCart(12);
+$productAccess = new ProductDataAccess();
+
+var_dump($cart);
+
 phpinfo();

@@ -3,8 +3,13 @@
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
 
+//TODO: REMOVE THIS ONCE AUTOLOADER IS DONE BEING A POS
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/BusinessServices/Model/ShoppingCart.php";
+
 require_once "../../Utility/autoloader.php";
 require_once "../../Utility/header.php";
+
+
 
 // get the id and new qty
 $productIDtoUpdate = $_GET["productID"];

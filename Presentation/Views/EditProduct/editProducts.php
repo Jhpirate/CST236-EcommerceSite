@@ -2,7 +2,7 @@
 /*
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
-//require_once "../../../DataAccess/ProductDataAccess.php"; //temp
+require_once "../../../DataAccess/ProductDataAccess.php"; //temp
 require_once "../../../Utility/autoloader.php";
 ?>
 

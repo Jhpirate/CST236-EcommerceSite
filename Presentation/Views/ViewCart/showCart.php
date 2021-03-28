@@ -7,7 +7,10 @@
 require_once "../../../Utility/autoloader.php";
 //require_once "../../../DataAccess/ProductDataAccess.php"; // autoloader just broke... why? NOTHING CHANGED - Session somehow corrupted
 //require_once "../../../DataAccess/UserDataAccess.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/BusinessServices/Model/ShoppingCart.php";
 require_once "../../../Utility/header.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/ProductDataAccess.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/UserDataAccess.php";
 
 // Allow access to users and products
 $productAccess = new ProductDataAccess();
