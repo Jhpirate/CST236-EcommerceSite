@@ -8,8 +8,10 @@
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="1.0" x="579.0" y="289.0" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="1.0" x="261.5" y="198.5" />
+  <SelectedNodes>
+    <node>\OrderBusinessService</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constants</Category>

@@ -12,8 +12,10 @@
   </nodes>
   <notes />
   <edges />
-  <settings layout="Hierarchic Group" zoom="0.45274725274725275" x="699.0" y="672.5" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="0.31069711538461536" x="767.0" y="822.0000000000001" />
+  <SelectedNodes>
+    <node>\Product</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Constants</Category>
