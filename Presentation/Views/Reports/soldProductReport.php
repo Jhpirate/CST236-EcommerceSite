@@ -41,7 +41,6 @@ $soldProducts = $ordersBS->allProductSalesReport($startDate, $endDate);
             <h1 class="title">Product Sales Report</h1>
         </div>
 
-        <div class="table-container">
         <table class="table is-fullwidth" id="soldProducts">
             <thead>
                 <tr>
@@ -61,7 +60,7 @@ $soldProducts = $ordersBS->allProductSalesReport($startDate, $endDate);
 
                     echo "<tr>";
 
-                    echo "<td>" . $product["product_id"] . "</td>";
+                    echo "<td><a href='../ProductPage/viewProduct.php?productID='".$product["product_id"]."'>" . $product["product_id"] . "</a></td>";
                     echo "<td>" . $product["product_name"] . "</td>";
                     echo "<td>" . $product["productSum"] . "</td>";
 
@@ -81,7 +80,6 @@ $soldProducts = $ordersBS->allProductSalesReport($startDate, $endDate);
             </tr>
             </tfoot>
         </table>
-        </div>
     </div>
 </section>
 
