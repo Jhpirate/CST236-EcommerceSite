@@ -17,14 +17,21 @@ $productAccess = new ProductDataAccess();
 // Get array of our selected product
 $currentProduct = $productAccess->findProductByID($productID);
 
-// Store array vars in separate variables
-$currentProductID = $currentProduct[0]["ID"];
-$currentProductName = $currentProduct[0]["product_name"];
-$currentProductDesc = $currentProduct[0]["product_description"];
-$currentProductSize = $currentProduct[0]["size"];
-$currentProductColor = $currentProduct[0]["color"];
-$currentProductPrice = $currentProduct[0]["price"];
+//declare variables beforehand
+$currentProductID = $currentProductName = $currentProductDesc = $currentProductSize = $currentProductColor = $currentProductPrice = null;
 
+// Store array vars in separate variables
+if(!is_null($currentProduct) && !empty($currentProduct)) {
+    $currentProductID = $currentProduct[0]["ID"];
+    $currentProductName = $currentProduct[0]["product_name"];
+    $currentProductDesc = $currentProduct[0]["product_description"];
+    $currentProductSize = $currentProduct[0]["size"];
+    $currentProductColor = $currentProduct[0]["color"];
+    $currentProductPrice = $currentProduct[0]["price"];
+}
+
+// DEBUG: View full contents of item as pulled from DB
+//var_dump($currentProduct);
 
 ?>
 
