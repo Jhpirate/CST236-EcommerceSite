@@ -222,6 +222,7 @@ $userDataAccess = new UserDataAccess();
 
                 <h3 class="title">Items</h3>
 
+                <div class="table-container">
                 <table class="table is-striped is-hoverable">
                     <thead>
                     <tr>
@@ -278,6 +279,7 @@ $userDataAccess = new UserDataAccess();
                     </tr>
                     </tfoot>
                 </table>
+                </div>
 
                 <!-- show the checkout and cancel buttons -->
                 <div class="buttons is-justify-content-space-evenly">
