@@ -78,4 +78,39 @@ class OrderDataAccess
             return -1;
         }
     }
+
+    // RETURN LIST OF ALL PRODUCTS AND HOW MANY OF EACH UNIT HAS BEEN SOLD
+    public function allProductSalesReport($start, $end)
+    {
+        // DATA CONNECTION
+        $dataLink = new DatabaseConnection();
+        $connection = $dataLink->getConnected();
+
+        // SQL STATEMENT
+        $sql_statement = $connection->prepare("select product_id, product_name, sum(order_qty) as productSum
+                                                        from cst236_ecommerce_site.order_details
+                                                        join cst236_ecommerce_site.products p on order_details.product_id = p.ID
+                                                        join cst236_ecommerce_site.orders o on order_details.order_id = o.ID
+                                                        WHERE date between ? and ? 
+                                                        group by product_id, product_name");
+
+        // Bind parameters
+        $sql_statement->bind_param("ss", $startDate, $endDate);
+        $startDate = $start;
+        $endDate = $end;
+
+        // Execute the query
+        $sql_statement->execute();
+
+        // Store the results
+        $results = $sql_statement->get_result();
+
+        //store the results in an array
+        $soldProducts = array();
+        while($product = $results->fetch_assoc()) {
+            array_push($soldProducts, $product);
+        }
+
+        return $soldProducts;
+    }
 }

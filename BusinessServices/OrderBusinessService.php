@@ -85,6 +85,22 @@ class OrderBusinessService
     }
 
 
+    // TODO: Not implemented (No overall order reports needed yet, just product report)
+    // FUNCTION FOR GETTING INFO FOR REPORTS
+    public function getOrdersFrom($startDate, $endDate) {
+        //$orderDataAccess = new OrderDataAccess();
+
+        //$orderDataAccess->getOrderFromRange($startDate, $endDate);
+    }
+
+    // FUNCTION FOR PRODUCT SALES REPORT
+    public function allProductSalesReport($start, $end) {
+        $orderDataAccess = new OrderDataAccess();
+
+        $sold = $orderDataAccess->allProductSalesReport($start, $end);
+        return $sold;
+    }
+
     // Methods not yet implemented or demonstrated
     // No mention of them in any documents, but videos had them so they are here
     public function createNewOrder()
