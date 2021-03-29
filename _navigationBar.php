@@ -51,6 +51,7 @@ $userRole = $_SESSION["userRole"];
                 <div class="navbar-dropdown">
                     <a class="navbar-item" href="/CST236-EcommerceSite/Presentation/Views/EditUsers/editUsers.php">Edit Users</a>
                     <a class="navbar-item" href="/CST236-EcommerceSite/Presentation/Views/EditProduct/editProducts.php">Edit Products</a>
+                    <a class="navbar-item" href="/CST236-EcommerceSite/Presentation/Views/Reports/reportSelection.php">Reports</a>
                     <hr class="navbar-divider">
                     <a class="navbar-item">Site Info</a>
                 </div>
