@@ -6,14 +6,15 @@
 // _ denotes that this is a partial file. This fill will be included on other pages to add the nav bar
 require_once "Utility/header.php";
 
-$isLoggedIn = $_SESSION["isLoggedIn"];
-$userID = $_SESSION["userID"];
-$username = $_SESSION["username"];
-$userRole = $_SESSION["userRole"];
 
-// Override default session values for testing
-//$userRole = 99;
-//$isLoggedIn = false;
+$isLoggedIn = $_SESSION["isLoggedIn"];
+if($isLoggedIn === true) {
+    //prevent undefined index errors if trying to grab without bing logged in
+    $userID = $_SESSION["userID"];
+    $username = $_SESSION["username"];
+    $userRole = $_SESSION["userRole"];
+}
+
 ?>
 
 <!-- Main navigation bar -->
