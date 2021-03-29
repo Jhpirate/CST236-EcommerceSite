@@ -45,6 +45,7 @@ if ($cart->getUserID() != $_SESSION["userID"]) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>View Cart</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
@@ -60,6 +61,9 @@ if ($cart->getUserID() != $_SESSION["userID"]) {
             <h1 class="title">Your Cart</h1>
         </div>
 
+        <?php
+        //TODO: Bulma mobile doesn't play nice with tables, replace with something else
+        ?>
         <div class="table-container">
             <table class="table is-fullwidth">
                 <thead>
