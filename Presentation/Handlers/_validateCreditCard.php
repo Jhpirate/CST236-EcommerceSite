@@ -4,6 +4,7 @@
  */
 
 //TODO: REMOVE THIS ONCE AUTOLOADER IS DONE BEING A POS
+// Update 03/29/2021 - Autoloader decided to work just fine today, but I dont trust it. This stays...
 require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/BusinessServices/CCVerificationBusinessService.php";
 
 require_once "../../Utility/autoloader.php";
