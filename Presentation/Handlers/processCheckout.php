@@ -23,6 +23,7 @@ if (isset($_SESSION["userCartStorage"])) {
 require_once "_validateCreditCard.php"; //partial file
 
 
+
 // Get the user information
 $cardHolderName = $_POST["fullName"];
 $cardHolderEmail = $_POST["email"];
@@ -41,6 +42,10 @@ $orderBS->checkout($cart);
 
 // Clear cart
 unset($_SESSION["userCartStorage"]);
+
+// TODO: Remove this session variable and consolidate it to the ShoppingCart Object?
+//unset coupon code
+unset($_SESSION["userCoupon"]);
 
 
 // SHOW SUCCESS MESSAGE THAT REDIRECTS HOME

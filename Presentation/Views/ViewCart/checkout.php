@@ -3,7 +3,7 @@
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
 
-//TODO: REMOVE THIS ONCE AUTOLOADER IS DONE BEING A POS
+//TODO: REMOVE THIS ONCE AUTOLOADER IS DONE NOT WORKING
 require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/BusinessServices/Model/ShoppingCart.php";
 require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/ProductDataAccess.php";
 require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/UserDataAccess.php";
@@ -13,6 +13,9 @@ require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/UserData
 require_once "../../../Utility/autoloader.php";
 require_once "../../../Utility/header.php";
 
+// MS 7 Customization addon
+// check and see if coupon code was used
+$couponUsed = $_SESSION["userCoupon"];
 
 
 // Allow access to users and products from DB
@@ -215,6 +218,7 @@ $userDataAccess = new UserDataAccess();
                     </div>
 
                 </form>
+
             </div>
 
             <!-- Show product details table left -->
@@ -223,7 +227,7 @@ $userDataAccess = new UserDataAccess();
                 <h3 class="title">Items</h3>
 
                 <div class="table-container">
-                <table class="table is-striped is-hoverable">
+                <table class="table is-striped is-hoverable is-fullwidth">
                     <thead>
                     <tr>
                         <th>#</th>
@@ -273,22 +277,61 @@ $userDataAccess = new UserDataAccess();
                     <tfoot>
                     <tr>
                         <td colspan="5" class="has-text-right">
-                            <strong>TOTAL:</strong> $<?php $cart->calculateCartTotals();
-                            echo number_format($cart->getCartTotal(), 2); ?>
+                            <strong>TOTAL:</strong> $
+                            <?php
+
+                            //if coupon is applied dont re-calculate total
+                            if(isset($couponUsed)) {
+                                echo number_format($cart->getCartTotal(), 2);
+                            } else {
+                                $cart->calculateCartTotals();
+                                echo number_format($cart->getCartTotal(), 2);
+                            }
+                            ?>
                         </td>
                     </tr>
                     </tfoot>
                 </table>
                 </div>
 
+                <!-- Discount Code Entry -->
+                <div class="field has-addons has-addons-fullwidth is-pulled-left">
+                    <div class="control">
+                        <form action="../../Handlers/applyCouponCode.php" method="post" id="applyCoupon">
+                            <?php
+                            //if coupon has been used disable the field and fill the coupon
+                            if(isset($couponUsed)) {
+                                echo "<input class='input' type='text' placeholder='". $couponUsed . "' name='discountCode' id='discountCode' disabled>";
+                            }
+                            //otherwise output blank entry field
+                            else {
+                                echo '<input class="input" type="text" placeholder="Coupon Code" name="discountCode" id="discountCode">';
+                            }
+
+                            ?>
+
+                        </form>
+
+                    </div>
+                    <div class="control">
+                        <?php
+                        if(isset($couponUsed)) {
+                            echo '<button class="button is-info" form="applyCoupon" disabled>Apply</button>';
+                        } else {
+                            echo '<button class="button is-info" form="applyCoupon">Apply</button>';
+                        }
+                        ?>
+                    </div>
+                </div>
+
                 <!-- show the checkout and cancel buttons -->
                 <div class="buttons is-justify-content-space-evenly">
 
                     <form method="post" action="showCart.php">
-                        <input class="button is-danger is-large" type="submit" value="Cancel">
+                        <input class="button is-danger is-medium" type="submit" value="Cancel">
                     </form>
 
-                    <button class="button is-primary is-large" type="submit" form="creditCardInfo">Checkout</button>
+                    <button class="button is-primary is-medium" type="submit" form="creditCardInfo">Checkout</button>
 
                 </div>
             </div>

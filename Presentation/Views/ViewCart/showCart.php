@@ -39,6 +39,9 @@ if ($cart->getUserID() != $_SESSION["userID"]) {
     exit;
 }
 
+//unset coupon code
+unset($_SESSION["userCoupon"]);
+
 ?>
 
 <!DOCTYPE html>
