@@ -58,10 +58,18 @@ $soldProducts = $ordersBS->allProductSalesReport($startDate, $endDate);
                 foreach ($soldProducts as $product) {
                     $totalProductsSold += $product["productSum"];
 
+                    $productID = $product["product_id"];
+
                     echo "<tr>";
 
                     // messy string concatenation, but working
-                    echo "<td><a href='../ProductPage/viewProduct.php?productID='".$product["product_id"]."'>" . $product["product_id"] . "</a></td>";
+                    echo <<<TAG
+<td>
+<a href='../ProductPage/viewProduct.php?productID=$productID'>$productID</a>
+</td>
+
+TAG;
+
                     echo "<td>" . $product["product_name"] . "</td>";
                     echo "<td>" . $product["productSum"] . "</td>";
 
