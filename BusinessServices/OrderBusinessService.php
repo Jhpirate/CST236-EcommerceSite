@@ -93,13 +93,19 @@ class OrderBusinessService
         //$orderDataAccess->getOrderFromRange($startDate, $endDate);
     }
 
-    // FUNCTION FOR PRODUCT SALES REPORT
+
+    /**
+     * @param $start
+     * @param $end
+     * @return array
+     */
     public function allProductSalesReport($start, $end) {
         $orderDataAccess = new OrderDataAccess();
 
         $sold = $orderDataAccess->allProductSalesReport($start, $end);
         return $sold;
     }
+
 
     // Methods not yet implemented or demonstrated
     // No mention of them in any documents, but videos had them so they are here
