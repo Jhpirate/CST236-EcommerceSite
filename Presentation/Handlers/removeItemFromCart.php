@@ -3,6 +3,9 @@
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
 
+//autloader broke...
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/BusinessServices/Model/ShoppingCart.php";
+
 require_once "../../Utility/autoloader.php";
 require_once "../../Utility/header.php";
 

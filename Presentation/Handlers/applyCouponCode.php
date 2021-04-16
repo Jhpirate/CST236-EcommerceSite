@@ -2,8 +2,14 @@
 /*
  * Copyright (c) 2021. Jared Heeringa - GCU CST236 Ecommerce Project
  */
+
+//AUTOLOADER STOPPED AGAIN...
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/BusinessServices/Model/ShoppingCart.php";
+require_once "/Applications/MAMP/htdocs/CST236-EcommerceSite/DataAccess/CouponDataAccess.php";
+
 require_once "../../Utility/autoloader.php";
 require_once "../../Utility/header.php";
+
 
 //get the cart session variable
 $userCart = new ShoppingCart(null);
